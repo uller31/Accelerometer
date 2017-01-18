@@ -1,4 +1,4 @@
-var watchID = null;
+var watchID = 0;
 //I onLoad tilføjes eventlistener
 function onLoad(){
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -9,13 +9,13 @@ startWatch();
 }
 //måler acceleration i bestemte intervaller
 function startWatch() {
-var options = { frequency: 1000 };//vis værdi hvert sekund
+var options = { frequency: 5 };//vis værdi hvert sekund
 watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options); //
 }
 function stopWatch() {
 if (watchID) {
 navigator.accelerometer.clearWatch(watchID);
-watchID = null;
+watchID = 0;
 }
 }
 function onSuccess(acceleration) {
